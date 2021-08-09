@@ -150,7 +150,7 @@ class Author(models.Model):
     )
 
     date_of_death = models.DateField(
-        'Died',
+        'died',
         null=True,
         blank=True
     )

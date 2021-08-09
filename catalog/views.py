@@ -40,7 +40,7 @@ def index(request):
             'num_instances': num_instances,
             'num_instances_available': num_instances_available, 'num_authors': num_authors,
             'num_visits': num_visits
-        },  # num_visits appended
+        }
     )
 
 
@@ -76,7 +76,7 @@ def renew_book_librarian(request, pk):
 
 class BookListView(generic.ListView):
     model = Book
-    paginate_by = 3
+    paginate_by = 10
 
 
 class BookDetailView(generic.DetailView):
@@ -85,7 +85,7 @@ class BookDetailView(generic.DetailView):
 
 class AuthorListView(generic.ListView):
     model = Author
-    paginate_by = 3
+    paginate_by = 10
 
 
 class AuthorDetailView(generic.DetailView):
@@ -98,7 +98,7 @@ class LoanedBooksByUserListView(LoginRequiredMixin, generic.ListView):
     """
     model = BookInstance
     template_name = 'catalog/bookinstance_list_borrowed_user.html'
-    paginate_by = 3
+    paginate_by = 10
 
     def get_queryset(self):
         return BookInstance.objects.filter(
